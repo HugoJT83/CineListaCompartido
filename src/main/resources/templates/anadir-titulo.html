@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>CineLista - Anadir titulo</title>
+    <th:block th:replace="~{fragments/cabecera :: comunes}"></th:block>
+</head>
+<body>
+
+<div th:replace="~{fragments/nav :: nav}"></div>
+
+<!--
+  TODO:
+  El formulario de abajo tiene solo el campo "titulo" a proposito. Falta
+  por vuestra parte anadir: genero, plataforma, estado y valoracion,
+  colocando el boton de guardar al final, eligiendo el control html5 mas
+  adecuado para cada campo (checkbox, radio, select, etc.) y maquetandolo
+  con el editor visual + Bootstrap.
+
+  El envio ya esta conectado: hace POST a /anadir-titulo y el controlador
+  (PeliculaController) guarda la pelicula en el repositorio.
+-->
+
+<h1>Anadir titulo</h1>
+
+<form th:action="@{/anadir-titulo}" th:object="${pelicula}" method="post">
+    <label>Titulo: <input type="text" th:field="*{titulo}" required></label>
+    <button type="submit">Guardar</button>
+</form>
+
+</body>
+</html>

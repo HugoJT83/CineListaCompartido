@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>CineLista - Mi lista</title>
+    <th:block th:replace="~{fragments/cabecera :: comunes}"></th:block>
+</head>
+<body>
+
+<div th:replace="~{fragments/nav :: nav}"></div>
+
+<!--
+  TODO:
+  La tabla de abajo esta reducida a una sola columna a proposito. Falta
+  por vuestra parte:
+   1) Disenar el prototipo con un editor visual (GrapesJS, Pinegrow, etc.)
+   2) Anadir el resto de columnas: genero, plataforma, estado, valoracion
+   3) Anadir un boton de borrar (decidid vosotros si va por fila o en comun,
+      justificandolo)
+   4) Maquetar con Bootstrap
+   5) Comentar en el HTML generado donde dice "autogenerado"
+
+  El modelo ya trae la lista de peliculas en la variable "peliculas"
+  (Collection<Pelicula> con id y titulo). La ruta de borrado existe
+  (POST /mi-lista/eliminar/{id}) pero el controlador (PeliculaController,
+  metodo eliminar) esta a medias: teneis que completarlo vosotros.
+-->
+
+<h1>Mi lista</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Titulo</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="p : ${peliculas}">
+        <td th:text="${p.titulo}">Titulo</td>
+    </tr>
+    </tbody>
+</table>
+
+<p th:if="${#lists.isEmpty(peliculas)}">Todavia no hay peliculas registradas.</p>
+
+</body>
+</html>
