@@ -28,6 +28,7 @@ cableado minimo de controladores:
   estado, valoracion) se anaden como TODO segun avancen las practicas. En
   el repositorio, `findById` y `deleteById` estan como stub (sin
   implementar) a proposito.
+  
 * `controller/PeliculaController.java`: `/mi-lista` (listar) y
   `/anadir-titulo` (mostrar formulario) ya funcionan. Los metodos
   `guardar` y `eliminar` estan a medias a proposito (las rutas existen,
