@@ -9,12 +9,13 @@
   que disenarla y construirla vosotros con el editor visual + Bootstrap,
   siguiendo el wireframe, y sustituir esta version en mi-lista.html.
 -->
-    <nav th:fragment="nav">
-        <ul>
-            <li><a th:href="@{/mi-lista}">Mi lista</a></li>
-            <li><a th:href="@{/anadir-titulo}">Anadir titulo</a></li>
-            <li><a th:href="@{/estrenos}">Estrenos</a></li>
-            <li><a th:href="@{/estadisticas}">Estadisticas</a></li>
+    <nav th:fragment="nav" class="navbar">
+        <h1>CineLista</h1>
+        <ul class="nav-list">
+            <li class="nav-item"><a th:href="@{/mi-lista}">Mi lista</a></li>
+            <li class="nav-item"><a th:href="@{/anadir-titulo}">Añadir titulo</a></li>
+            <li class="nav-item"><a th:href="@{/estrenos}">Estrenos</a></li>
+            <li class="nav-item"><a th:href="@{/estadisticas}">Estadisticas</a></li>
         </ul>
     </nav>
 
