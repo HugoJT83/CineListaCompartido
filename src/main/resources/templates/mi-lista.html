@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <title>CineLista - Mi lista</title>
     <th:block th:replace="~{fragments/cabecera :: comunes}"></th:block>
 </head>
+
 <body>
 
-<div th:replace="~{fragments/nav :: nav}"></div>
+    <div th:replace="~{fragments/nav :: nav}"></div>
 
-<!--
+    <!--
   TODO:
   La tabla de abajo esta reducida a una sola columna a proposito. Falta
   por vuestra parte:
@@ -25,22 +27,47 @@
   metodo eliminar) esta a medias: teneis que completarlo vosotros.
 -->
 
-<h1>Mi lista</h1>
+    <h1 class="h-milista">Mi lista</h1>
 
-<table>
-    <thead>
-    <tr>
-        <th>Titulo</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="p : ${peliculas}">
-        <td th:text="${p.titulo}">Titulo</td>
-    </tr>
-    </tbody>
-</table>
+    <table class="cine-table">
+        <thead>
+            <tr class="cine-header-row">
+                <th class="cine-th">Título</th>
+                <th class="cine-th">Género</th>
+                <th class="cine-th">Plataforma</th>
+                <th class="cine-th">Estado</th>
+                <th class="cine-th">Valoración</th>
+                <th class="cine-th">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="p : ${peliculas}" class="cine-row">
+                <td th:text="${p.titulo}" class="cine-td">Título</td>
+                <td th:text="${p.genero}" class="cine-td">Genero</td>
+                <td th:text="${p.plataforma}" class="cine-td">Plataforma</td>
+                <td th:text="${p.estado}" class="cine-td">Estado</td>
+                <td th:text="${p.valoracion}" class="cine-td">Valoración</td>
+                <!-- <td class="cine-td">
+                    <form th:action="@{/mi-lista/eliminar/{id}(id=${p.id})}" method="post" style="margin: 0;">
+                        <button type="submit" class="cine-btn-danger">Borrar</button>
+                    </form>
+                </td> -->
+            </tr>
+            <tr class="cine-row">
+                <td class="cine-td">Titulo de prueba</td>
+                <td class="cine-td">Genero de prueba</td>
+                <td class="cine-td">Plataforma de prueba</td>
+                <td class="cine-td">Estado de prueba</td>
+                <td class="cine-td">Valoracion de prueba</td>
+                <td class="cine-td">
+                    <button type="button" class="cine-btn-danger">Borrar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
-<p th:if="${#lists.isEmpty(peliculas)}">Todavia no hay peliculas registradas.</p>
+    <p th:if="${#lists.isEmpty(peliculas)}" class="cine-alert">Todavia no hay peliculas registradas.</p>
 
 </body>
+
 </html>
