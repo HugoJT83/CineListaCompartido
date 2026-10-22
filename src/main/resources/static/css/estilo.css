@@ -123,6 +123,10 @@
   border-radius: 10px;
 }
 
+.b-anadirTitulo {
+  background-color: var(--color-secundario);
+}
+
 .cine-titulo-seccion {
   font-size: 1.75rem;
   font-weight: 600;
