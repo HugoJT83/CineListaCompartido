@@ -1,13 +1,14 @@
 package com.example.cinelista.repository;
 
-import com.example.cinelista.model.Pelicula;
-import org.springframework.stereotype.Component;
-
 import java.util.Collection;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
+
+import org.springframework.stereotype.Component;
+
+import com.example.cinelista.model.Pelicula;
 
 /**
  * Almacen en memoria de peliculas/series. No hay base de datos: es
@@ -24,7 +25,9 @@ public class PeliculaRepository {
     }
 
     public Optional<Pelicula> findById(Long id) {
-        // TODO: buscar y devolver la pelicula con ese id (Optional.empty() si no existe).
+        if (peliculas.containsKey(id)) {
+            return Optional.of(peliculas.get(id));
+        }
         return Optional.empty();
     }
 
@@ -36,7 +39,10 @@ public class PeliculaRepository {
     }
 
     public boolean deleteById(Long id) {
-        // TODO: eliminar la pelicula con ese id y devolver true/false segun si existia.
+        if (peliculas.containsKey(id)) {
+            peliculas.remove(id);
+            return true;
+        }
         return false;
     }
 }
