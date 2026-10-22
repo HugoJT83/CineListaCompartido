@@ -109,3 +109,91 @@
 .cine-btn-danger:hover {
   background-color: #dc2626;
 }
+
+/* Página de Formularios / Añadir Título */
+
+.cine-container {
+  width: 95%;
+  max-width: 600px;
+  margin: 2rem auto;
+  background-color: #ffffff;
+  padding: 2rem;
+  border: 1px solid #000000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+.cine-titulo-seccion {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #000000;
+  text-align: center;
+}
+
+.cine-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.cine-grupo-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cine-label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #000000;
+}
+
+.cine-input,
+.cine-select {
+  padding: 0.75rem;
+  font-size: 0.95rem;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  background-color: #ffffff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cine-input:focus,
+.cine-select:focus {
+  outline: none;
+  border-color: var(--color-primario);
+  box-shadow: 0 0 0 3px rgba(133, 217, 88, 0.25);
+}
+
+.cine-radio-grupo {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.cine-form-text {
+  font-size: 0.85rem;
+  color: #555555;
+}
+
+.cine-btn-contenedor {
+  margin-top: 1rem;
+}
+
+.cine-btn-guardar {
+  width: 100%;
+  background-color: var(--color-primario);
+  color: #000000;
+  border: 1px solid #000000;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.cine-btn-guardar:hover {
+  background-color: #72c147;
+}

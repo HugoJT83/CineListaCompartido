@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <title>CineLista - Anadir titulo</title>
     <th:block th:replace="~{fragments/cabecera :: comunes}"></th:block>
 </head>
+
 <body>
 
-<div th:replace="~{fragments/nav :: nav}"></div>
+    <div th:replace="~{fragments/nav :: nav}"></div>
 
-<!--
+    <!--
   TODO:
   El formulario de abajo tiene solo el campo "titulo" a proposito. Falta
   por vuestra parte anadir: genero, plataforma, estado y valoracion,
@@ -22,67 +24,78 @@
   dar estilo y hacer formulario con funciones.
 -->
 
-<h1>Anadir titulo</h1>
+    <h1>Anadir titulo</h1>
 
-<!--<form th:action="@{/anadir-titulo}" th:object="${pelicula}" method="post">
+    <!--<form th:action="@{/anadir-titulo}" th:object="${pelicula}" method="post">
     <label>Titulo: <input type="text" th:field="*{titulo}" required></label>
     <button type="submit">Guardar</button>
 </form>-->
 
-<form th:action="@{/anadir-titulo}" th:object="${pelicula}" method="post" class="needs-validation" novalidate>
-                        
-                        <!-- Campo: Título -->
-                        <div class="mb-3">
-                            <label for="titulo" class="form-label fw-semibold">Título:</label>
-                            <input type="text" id="titulo" class="form-control" th:field="*{titulo}" placeholder="Ej. Inception" required>
-                        </div>
+    <div class="cine-container">
+        <h1 class="cine-titulo-seccion">Añadir título</h1>
 
-                        <!-- Campo: Género -->
-                        <div class="mb-3">
-                            <label for="genero" class="form-label fw-semibold">Género:</label>
-                            <select id="genero" class="form-select" th:field="*{genero}" required>
-                                <option value="">Selecciona un género...</option>
-                                <option value="Acción">Acción</option>
-                                <option value="Comedia">Comedia</option>
-                                <option value="Drama">Drama</option>
-                                <option value="Ciencia Ficción">Ciencia Ficción</option>
-                                <option value="Terror">Terror</option>
-                                <option value="Animación">Animación</option>
-                            </select>
-                        </div>
+        <form th:action="@{/anadir-titulo}" th:object="${pelicula}" method="post" class="cine-form">
 
-                        <!-- Campo: Plataforma -->
-                        <div class="mb-3">
-                            <label for="plataforma" class="form-label fw-semibold">Plataforma:</label>
-                            <input type="text" id="plataforma" class="form-control" th:field="*{plataforma}" placeholder="Ej. Netflix, HBO, Cine..." required>
-                        </div>
+            <!-- Campo: Título -->
+            <div class="cine-grupo-campo">
+                <label for="titulo" class="cine-label">Título:</label>
+                <input type="text" id="titulo" class="cine-input" th:field="*{titulo}" placeholder="Ej. Inception"
+                    required>
+            </div>
 
-                        <!-- Campo: Estado (Radio buttons para "vista" / "pendiente") -->
-                        <div class="mb-3">
-                            <label class="form-label fw-semibold d-block">Estado:</label>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" id="estadoVista" th:field="*{estado}" value="vista" required>
-                                <label class="form-check-label" for="estadoVista">Vista</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" id="estadoPendiente" th:field="*{estado}" value="pendiente" required>
-                                <label class="form-check-label" for="estadoPendiente">Pendiente</label>
-                            </div>
-                        </div>
+            <!-- Campo: Género -->
+            <div class="cine-grupo-campo">
+                <label for="genero" class="cine-label">Género:</label>
+                <select id="genero" class="cine-select" th:field="*{genero}" required>
+                    <option value="">Selecciona un género...</option>
+                    <option value="Acción">Acción</option>
+                    <option value="Comedia">Comedia</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Ciencia Ficción">Ciencia Ficción</option>
+                    <option value="Terror">Terror</option>
+                    <option value="Animación">Animación</option>
+                </select>
+            </div>
 
-                        <!-- Campo: Valoración (Número de 0 a 10 acorde al modelo) -->
-                        <div class="mb-4">
-                            <label for="valoracion" class="form-label fw-semibold">Valoración (0 - 10):</label>
-                            <input type="number" id="valoracion" class="form-control" th:field="*{valoracion}" min="0" max="10" value="0" required>
-                            <div class="form-text">Introduce un valor numérico entero entre 0 y 10.</div>
-                        </div>
+            <!-- Campo: Plataforma -->
+            <div class="cine-grupo-campo">
+                <label for="plataforma" class="cine-label">Plataforma:</label>
+                <input type="text" id="plataforma" class="cine-input" th:field="*{plataforma}"
+                    placeholder="Ej. Netflix, HBO, Cine..." required>
+            </div>
 
-                        <!-- Botón de guardar al final -->
-                        <div class="d-grid">
-                            <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
-                        </div>
+            <!-- Campo: Estado -->
+            <div class="cine-grupo-campo">
+                <label class="cine-label">Estado:</label>
+                <div class="cine-radio-grupo">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="estadoVista" th:field="*{estado}" value="vista"
+                            required>
+                        <label class="form-check-label" for="estadoVista">Vista</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="estadoPendiente" th:field="*{estado}"
+                            value="pendiente" required>
+                        <label class="form-check-label" for="estadoPendiente">Pendiente</label>
+                    </div>
+                </div>
+            </div>
 
-                    </form>
+            <!-- Campo: Valoración -->
+            <div class="cine-grupo-campo">
+                <label for="valoracion" class="cine-label">Valoración (0 - 10):</label>
+                <input type="number" id="valoracion" class="cine-input" th:field="*{valoracion}" min="0" max="10"
+                    value="0" required>
+                <div class="cine-form-text">Introduce un valor numérico entero entre 0 y 10.</div>
+            </div>
 
+            <!-- Botón de guardar -->
+            <div class="cine-btn-contenedor">
+                <button type="submit" class="cine-btn-guardar">Guardar</button>
+            </div>
+
+        </form>
+    </div>
 </body>
+
 </html>
