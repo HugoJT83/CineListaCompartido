@@ -11,6 +11,7 @@
         <link rel="stylesheet" th:href="@{/css/estilo.css}">
     </th:block>
 
+    <!-- Fuente google fonts -->
     <th:block th:fragment="fuente">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,16 +22,18 @@
 
     <!-- Solo para estadisticas.html -->
     <th:block th:fragment="datatables">
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.11/css/jquery.dataTables.min.css">
-        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-        <script src="https://cdn.datatables.net/1.13.11/js/jquery.dataTables.min.js"></script>
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/datatables.net-dt@1.13.11/css/jquery.dataTables.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/datatables.net@1.13.11/js/jquery.dataTables.min.js"></script>
     </th:block>
 
     <!-- Extension Buttons de DataTables (exportar a CSV), solo para estadisticas.html -->
     <th:block th:fragment="datatables-buttons">
-        <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.3/css/buttons.dataTables.min.css">
-        <script src="https://cdn.datatables.net/buttons/2.4.3/js/dataTables.buttons.min.js"></script>
-        <script src="https://cdn.datatables.net/buttons/2.4.3/js/buttons.html5.min.js"></script>
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/datatables.net-buttons-dt@2.4.3/css/buttons.dataTables.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/datatables.net-buttons@2.4.3/js/dataTables.buttons.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/datatables.net-buttons@2.4.3/js/buttons.html5.min.js"></script>
     </th:block>
 
     <!-- Solo para estrenos.html -->
