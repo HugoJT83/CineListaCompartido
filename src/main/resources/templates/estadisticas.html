@@ -56,6 +56,14 @@
                     dataSrc: ''
                 },
                 searching: true,
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extend: 'csvHtml5',
+                        text: 'Exportar a CSV',
+                        filename: 'estadisticas_de_peliculas'
+                    }
+                ],
                 columns: [
                     { data: 'titulo' },
                     { data: 'genero' },
