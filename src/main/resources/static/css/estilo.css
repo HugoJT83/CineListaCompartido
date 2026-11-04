@@ -201,3 +201,16 @@
 .cine-btn-guardar:hover {
   background-color: #72c147;
 }
+
+/* Estadisticas */
+
+
+.barra-datos {
+  background-color: #3b82f6;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-align: right;
+  font-weight: bold;
+  min-width: 30px;
+}

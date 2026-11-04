@@ -31,6 +31,7 @@
                 <th>Genero</th>
                 <th>Taquilla</th>
                 <th>Nota</th>
+                <th>Nota (Gráfico)</th>
             </tr>
         </thead>
         <tbody>
@@ -38,6 +39,7 @@
         </tbody>
         <tfoot>
             <tr>
+                <th></th>
                 <th></th>
                 <th></th>
                 <th></th>
@@ -58,7 +60,16 @@
                     { data: 'titulo' },
                     { data: 'genero' },
                     { data: 'taquilla' },
-                    { data: 'nota' }
+                    { data: 'nota' },
+                    {
+                        data: 'nota',
+                        render: function (data, type, row) {
+                            if (type !== 'display') return data;
+                            const maxNota = 10;
+                            const pct = Math.round((data / maxNota) * 100);
+                            return `<div class="barra-datos" style="width:${pct}%">${data}</div>`;
+                        }
+                    }
                 ],
                 footerCallback: function (row, data, start, end, display) {
                     var api = this.api();
