@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <title>CineLista - Estadisticas</title>
     <th:block th:replace="~{fragments/cabecera :: comunes}"></th:block>
     <th:block th:replace="~{fragments/cabecera :: datatables}"></th:block>
     <th:block th:replace="~{fragments/cabecera :: datatables-buttons}"></th:block>
 </head>
+
 <body>
 
-<div th:replace="~{fragments/nav :: nav}"></div>
+    <div th:replace="~{fragments/nav :: nav}"></div>
 
-<h1>Estadisticas</h1>
+    <h1 class="h-milista">Estadisticas</h1>
 
-<!--
+    <!--
   TODO:
   1) Comprobar jQuery y DataTables (CDN o local) ya agregadas
   2) Inicializad DataTables sobre la tabla de abajo con la opcion "ajax"
@@ -22,27 +24,46 @@
      barra grafica, boton de exportar a CSV con nombre propio.
 -->
 
-<table id="tabla-estadisticas">
-    <thead>
-    <tr>
-        <th>Titulo</th>
-        <th>Genero</th>
-        <th>Taquilla</th>
-        <th>Nota</th>
-    </tr>
-    </thead>
-    <tbody>
-    <!-- Las filas las rellenara DataTables via ajax -->
-    </tbody>
-    <tfoot>
-    <tr>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-    </tr>
-    </tfoot>
-</table>
+    <table id="tabla-estadisticas">
+        <thead>
+            <tr>
+                <th>Titulo</th>
+                <th>Genero</th>
+                <th>Taquilla</th>
+                <th>Nota</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Las filas las rellenara DataTables via ajax -->
+        </tbody>
+        <tfoot>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+    </table>
+
+    <script>
+        $(document).ready(function () {
+            $('#tabla-estadisticas').DataTable({
+                ajax: {
+                    url: '/api/estadisticas',
+                    dataSrc: ''
+                },
+                searching: true,
+                columns: [
+                    { data: 'titulo' },
+                    { data: 'genero' },
+                    { data: 'taquilla' },
+                    { data: 'nota' }
+                ]
+            });
+        });
+    </script>
 
 </body>
+
 </html>
