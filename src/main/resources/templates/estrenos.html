@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <title>CineLista - Estrenos</title>
-    <th:block th:replace="~{fragments/cabecera :: comunes}"></th:block>
-    <th:block th:replace="~{fragments/cabecera :: react}"></th:block>
+   <title>CineLista - Estrenos</title>
+   <th:block th:replace="~{fragments/cabecera :: comunes}"></th:block>
+   <th:block th:replace="~{fragments/cabecera :: react}"></th:block>
 </head>
+
 <body>
 
-<div th:replace="~{fragments/nav :: nav}"></div>
+   <div th:replace="~{fragments/nav :: nav}"></div>
 
-<h1>Estrenos</h1>
+   <h1 class="h-milista">Estrenos</h1>
 
-<!--
+   <!--
   TODO:
   1) Comprobad los <script> de React, ReactDOM y Babel Standalone (CDN) estan
      agregados.
@@ -22,7 +24,10 @@
 
   La lista HTML donde debe montarse cada tarjeta ya tiene el id esperado:
 -->
-<ul id="lista-estrenos"></ul>
+   <ul id="lista-estrenos"></ul>
 
+   <script type="text/babel" src="/js/componentes/TarjetaEstreno.js"></script>
+   <script type="text/babel" src="/js/estrenos.js"></script>
 </body>
+
 </html>

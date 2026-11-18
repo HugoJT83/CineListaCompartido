@@ -9,44 +9,41 @@
  *   <script type="text/babel" src="/js/componentes/TarjetaEstreno.js"></script>
  *
  * Props que debe recibir:
- *  - titulo        (string) Titulo del estreno.
-*     TODO doc
+ *  - titulo        (string) Título del estreno.
+ *  - fechaEstreno  (string) Fecha programada del estreno.
+ *  - genero        (string) Género cinematográfico o temático.
+ *  - plataforma    (string) Plataforma de emisión (opcional, por defecto "Por confirmar").
  *
  * Evento:
- *  - Boton "Marcar interes": TODO doc
+ *  - Botón "Marcar interés": Alterna el estado local de interés del usuario mostrando
+ *    un icono de estrella llena (★) si está marcado o vacía (☆) en caso contrario.
  *
  * Ejemplo de uso:
  *   <TarjetaEstreno
  *       titulo="Nebula Roja"
- *       TODO doc
+ *       fechaEstreno="2026-06-15"
+ *       genero="Ciencia Ficción"
+ *       plataforma="Streaming X"
  *   />
  */
 
-// TODO 1: declara la funcion TarjetaEstreno y recibe las props con
-//         desestructuracion: { titulo, fechaEstreno, genero, plataforma }.
-//         Dale a "plataforma" el valor por defecto "Por confirmar".
-function TarjetaEstreno() {
 
-    // TODO 2: crea el estado local "interesado" (false por defecto) con
-    //         React.useState y guarda tambien su funcion "setInteresado".
+function TarjetaEstreno({ titulo, fechaEstreno, genero, plataforma = "Por confirmar" }) {
+    const [interesado, setInteresado] = React.useState(false);
 
-
-    // TODO 3: devuelve (return) el JSX de la tarjeta. La raiz debe ser un
-    //         <li> con className="tarjeta-estreno" (ojo: en JSX se escribe
-    //         className, no class), porque la tarjeta se pinta dentro del
-    //         <ul id="lista-estrenos"> de estrenos.html. Dentro:
-    //           - <h3> con el titulo
-    //           - <p> "Fecha de estreno: ..." con la fecha
-    //           - <p> "Genero: ..." con el genero
-    //           - <p> "Plataforma: ..." con la plataforma
-    //           - <button type="button" className="btn-interes"> con el
-    //             texto "Marcar interes" precedido del icono:
-    //               ★ si interesado es true, ☆ si es false
-    //             (usa un operador ternario dentro de llaves { }).
-    //
-    // TODO 4: al boton anadele onClick para invertir el estado:
-    //           onClick={() => setInteresado(!interesado)}
-    //
-    // Mientras no lo completes, la tarjeta no pinta nada:
-    return null;
+    return (
+        <div className="tarjeta-estreno">
+            <h3>{titulo}</h3>
+            <p>Fecha de estreno: {fechaEstreno}</p>
+            <p>Genero: {genero}</p>
+            <p>Plataforma: {plataforma}</p>
+            <button
+                type="button"
+                className="btn-interes"
+                onClick={() => setInteresado(!interesado)}
+            >
+                Marcar Interés {interesado ? "★" : "☆"}
+            </button>
+        </div>
+    );
 }
